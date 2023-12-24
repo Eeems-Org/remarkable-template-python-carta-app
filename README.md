@@ -4,8 +4,8 @@ reMarkable Template Qt Application
 ==================================
 
 - [.github/workflows/build.yml](.github/workflows/build.yml) - Workflow to build, package, and test the app
-- [myapp/__init__.py](myapp/__init__.py) - Main import of the application. The main method gets run on startup.
-- [myapp/__main__.py](myapp/__main__.py) - Main entrypoint of the application when used as a python module.
+- [myapp/\_\_init\_\_.py](myapp/__init__.py) - Main import of the application. The main method gets run on startup.
+- [myapp/\_\_main\_\_.py](myapp/__main__.py) - Main entrypoint of the application when used as a python module.
 - [myapp.py](myapp.py) - Main entrypoint of the application when compiled with [nuitka](https://nuitka.net/) to create the binary executable.
 - [myapp.oxide](myapp.oxide) - [Oxide application registration](https://oxide.eeems.codes/documentation/03_application_registration_format.html).
 - [package](package) - [Toltec package recipe](https://github.com/toltec-dev/toltec/blob/stable/docs/package.md) to create a package that can be installed on the device.
