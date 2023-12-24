@@ -8,7 +8,7 @@ maintainer="My Name <me@example.com>"
 license=MIT
 
 source=(
-    app.bin
+    myapp.bin
     myapp.oxide
 )
 sha256sums=(
@@ -17,6 +17,6 @@ sha256sums=(
 )
 
 package() {
-    install -D -m 755 -t "$pkgdir"/opt/bin/myapp "$srcdir"/app.bin
+    install -D -m 755 -t "$pkgdir"/opt/bin/myapp "$srcdir"/myapp.bin
     install -D -m 655 -t "$pkgdir"/opt/usr/share/applications/ "$srcdir"/myapp.oxide
 }

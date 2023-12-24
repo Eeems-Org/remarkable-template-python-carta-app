@@ -24,8 +24,8 @@ jobs:
           main: app.py
       - uses: actions/upload-artifact@v3
         with:
-          name: app
-          path: dist/app.bin
+          name: myapp
+          path: dist/myapp.bin
           if-no-files-found: error
   package:
     name: Package
@@ -36,7 +36,7 @@ jobs:
       - uses: actions/download-artifact@v3
         id: download
         with:
-          name: app
+          name: myapp
       - name: Build package
         uses: toltec-dev/build-action@v1
       - name: Save packages
