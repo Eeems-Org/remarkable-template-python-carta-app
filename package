@@ -6,6 +6,7 @@ timestamp=2020-10-09T18:15Z
 section=util
 maintainer="My Name <me@example.com>"
 license=MIT
+installdepends=(simple)
 
 source=(
     myapp.bin
