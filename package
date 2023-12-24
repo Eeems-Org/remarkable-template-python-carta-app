@@ -1,0 +1,22 @@
+pkgnames=(my-app)
+pkgdesc="An example application package"
+url=https://example.com
+pkgver=0.0.1-1
+timestamp=2020-10-09T18:15Z
+section=util
+maintainer="My Name <me@example.com>"
+license=MIT
+
+source=(
+    app.bin
+    myapp.oxide
+)
+sha256sums=(
+    SKIP
+    SKIP
+)
+
+package() {
+    install -D -m 755 -t "$pkgdir"/opt/bin/myapp "$srcdir"/app.bin
+    install -D -m 655 -t "$pkgdir"/opt/usr/share/applications/ "$srcdir"/myapp.oxide
+}

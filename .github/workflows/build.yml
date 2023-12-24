@@ -1,0 +1,73 @@
+name: build
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  build
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the Git repository
+        uses: actions/checkout@v4
+      - name: Build
+        uses: Eeems-Org/remarkable-nuitka-build-action
+        with:
+          main: app.py
+      - uses: actions/upload-artifact@v3
+        with:
+          name: app
+          path: dist/app.bin
+          if-no-files-found: error
+  package:
+    name: Package
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v3
+        id: download
+        with:
+          name: app
+      - name: Build package
+        uses: toltec-dev/build-action@v1
+      - name: Save packages
+        uses: actions/upload-artifact@v3
+        with:
+          name: packages
+          path: dist/rm*/*.ipk
+      - name: Save repo
+        uses: actions/upload-artifact@v3
+        with:
+          name: rmall
+          path: dist/rmall
+  test:
+    test:
+    name: Test
+    runs-on: ubuntu-latest
+    needs: [build]
+    steps:
+      - uses: actions/download-artifact@v3
+        id: download
+        with:
+          name: rmall
+      - uses: Eeems-Org/run-in-remarkable-action@v1
+        with:
+          setup: |
+            set -ex
+            echo "src/gz local-rmall file:///opt/tmp/src" > /opt/etc/opkg.conf.d/16-local.conf
+          run: |
+            set -ex
+            echo Y | toltecctl generate-opkg-conf
+            opkg update
+            opkg install my-app
+            # Add steps here to test app
+            opkg remove my-app
+          path: ${{ steps.download.outputs.download-path }}
