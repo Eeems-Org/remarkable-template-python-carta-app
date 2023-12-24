@@ -22,5 +22,6 @@ pip install carta
 
 You can now copy the contents of this folder to your device, and run your app with the following from the folder with the code:
 ```bash
+pip install -r ./requirements.txt
 python -m myapp
 ```
