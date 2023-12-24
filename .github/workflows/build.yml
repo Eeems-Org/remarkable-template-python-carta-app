@@ -49,7 +49,6 @@ jobs:
           name: rmall
           path: dist/rmall
   test:
-    test:
     name: Test
     runs-on: ubuntu-latest
     needs: [build]
