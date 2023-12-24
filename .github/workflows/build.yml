@@ -19,7 +19,7 @@ jobs:
       - name: Checkout the Git repository
         uses: actions/checkout@v4
       - name: Build
-        uses: Eeems-Org/remarkable-nuitka-build-action
+        uses: Eeems-Org/remarkable-nuitka-build-action@v1
         with:
           main: app.py
       - uses: actions/upload-artifact@v3
