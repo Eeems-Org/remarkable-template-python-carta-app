@@ -65,9 +65,9 @@ jobs:
             echo "src/gz local-rmall file:///opt/tmp/src" > /opt/etc/opkg.conf.d/16-local.conf
             unit_path=/etc/systemd/system/rm2fb.service.d/99-never-fail.conf
             mkdir -p "$(dirname "$unit_path")"
-            echo "[Unit]" >> $unit_path"
-            echo "ExecStart=" >> $unit_path"
-            echo "ExecStart=/bin/true" >> $unit_path"
+            echo "[Unit]" > "$unit_path"
+            echo "ExecStart=" >> "$unit_path"
+            echo "ExecStart=/bin/true" >> "$unit_path"
           run: |
             echo Y | toltecctl generate-opkg-conf
             opkg update
