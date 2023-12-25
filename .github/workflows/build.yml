@@ -62,10 +62,13 @@ jobs:
       - uses: Eeems-Org/run-in-remarkable-action@v1
         with:
           setup: |
-            set -ex
             echo "src/gz local-rmall file:///opt/tmp/src" > /opt/etc/opkg.conf.d/16-local.conf
+            unit_path=/etc/systemd/system/rm2fb.service.d
+            mkdir -p "$unit_path"
+            echo "[Unit]" >> $unit_path"
+            echo "ExecStart=" >> $unit_path"
+            echo "ExecStart=/bin/true" >> $unit_path"
           run: |
-            set -ex
             echo Y | toltecctl generate-opkg-conf
             opkg update
             opkg install my-app
