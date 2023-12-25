@@ -13,6 +13,17 @@ reMarkable Template Python Carta Application
 Testing
 =======
 
+Simulate
+========
+
+You can use [rmkit-sim](https://pypi.org/project/rmkit-sim/) to test your application on your local machine.
+```bash
+make simulate
+```
+
+On Device
+=========
+
 First you will need to install the following dependencies on the device:
 ```bash
 opkg update
