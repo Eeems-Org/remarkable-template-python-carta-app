@@ -19,13 +19,28 @@ def main():
 
     rm = ReMarkable(simple=args.simple) if args.simple is not None else ReMarkable()
 
+    rm.eclear()
+
     button = Widget(
-        id="but1",
+        id="back",
         typ="button",
-        value="Hello!",
+        value="back",
+        justify="left",
+        x="0",
+        y="0",
+    )
+    text = Widget(
+        id="hello",
+        typ="label",
+        value="Hello World!",
         x="50%",
         y="50%",
     )
-
+    rm.add(text)
     rm.add(button)
-    rm.display()
+
+    while True:
+        clicked = rm.display()
+        if clicked and clicked[0] == button.id:
+            print("Quitting...")
+            break
