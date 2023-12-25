@@ -1,7 +1,7 @@
 [![rm1](https://img.shields.io/badge/rM1-supported-green)](https://remarkable.com/store/remarkable) [![rm2](https://img.shields.io/badge/rM2-supported-green)](https://remarkable.com/store/remarkable-2) [![Discord](https://img.shields.io/discord/385916768696139794.svg?label=reMarkable&logo=discord&logoColor=ffffff&color=7389D8&labelColor=6A7EC2)](https://discord.gg/ATqQGfu)
 
-reMarkable Template Qt Application
-==================================
+reMarkable Template Python Carta Application
+============================================
 
 - [.github/workflows/build.yml](.github/workflows/build.yml) - Workflow to build, package, and test the app
 - [myapp/\_\_init\_\_.py](myapp/__init__.py) - Main import of the application. The main method gets run on startup.
